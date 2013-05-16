@@ -6,30 +6,208 @@ Rascunho inicial
 ---
 
 --
-Shopping Cart Resources
-The following is a section of resources related to the shopping cart
+Recursos de Clientes
+A seção a seguir refere-se a recursos relacionados ao cliente
 --
-List products added into your shopping-cart. (comment block again in Markdown)
-GET /shopping-cart
-< 200
-< Content-Type: application/json
-{ "items": [
-{ "url": "/shopping-cart/1", "product":"2ZY48XPZ", "quantity": 1, "name": "New socks", "price": 1.25 }
-] }
-
-
-Save new products in your shopping cart
-POST /shopping-cart
+Cria um novo cliente
+POST /{loja}/clientes
 > Content-Type: application/json
-{ "product":"1AB23ORM", "quantity": 2 }
+{
+    "usuario":"afcarv", 
+    "senha":"senha",
+    "tipo":"PF", 
+    "nome":"Anael Ferraz de Carvalho",
+    "datanasc":06/11/1984, 
+    "sexo":"M",
+    "emailoptin": true,
+    "documentos": [
+        {
+            "nome":"CPF",
+            "valor":"00000000010"
+        },
+        {
+            "nome":"RG",
+            "valor":"11111111-1"
+        }
+    ],
+    "telefones": [
+        {
+            "tipo":"celular",
+            "ddi":"55",
+            "ddd":"19",
+            "numero":"93199399"
+            "complemento":""
+        },
+        {
+            "tipo":"fixo",
+            "ddi":"55",
+            "ddd":"19",
+            "numero":"33072409"
+            "complemento":""
+        },
+        {
+            "tipo":"outros",
+            "ddi":"55",
+            "ddd":"11",
+            "numero":"33072409"
+            "complemento":"ramal 3305"
+        }
+    ],
+    "endereco": [
+        {
+            "tipo":"cobranca",
+            "logradouro":"R. Jose Paulino 1711",
+            "complemento":"Apto. 64",
+            "bairro": "Vila Itapura",
+            "cidade": "Campinas",
+            "estado": "SP",
+            "pais": "Brasil"
+            "referencia": "Maternidade"
+            "cep":"13023102"
+        }
+    ]
+}
 < 201
 < Content-Type: application/json
-{ "status": "created", "url": "/shopping-cart/2" }
+{ "status": "created", "url": "/{loja}/clientes/2" }
 
-
--- Payment Resources --
-This resource allows you to submit payment information to process your *shopping cart* items
-POST /payment
-{ "cc": "12345678900", "cvc": "123", "expiry": "0112" }
+Recupera um cliente específico a partir do id
+GET /{loja}/clientes/{id}
 < 200
-{ "receipt": "/payment/receipt/1" }
+< Content-Type: application/json
+{
+    "usuario":"afcarv", 
+    "senha":"senha",
+    "tipo":"PF", 
+    "nome":"Anael Ferraz de Carvalho",
+    "datanasc":06/11/1984, 
+    "sexo":"M",
+    "emailoptin": true,
+    "documentos": [
+        {
+            "nome":"CPF",
+            "valor":"00000000010"
+        },
+        {
+            "nome":"RG",
+            "valor":"11111111-1"
+        }
+    ],
+    "telefones": [
+        {
+            "tipo":"celular",
+            "ddi":"55",
+            "ddd":"19",
+            "numero":"93199399"
+            "complemento":""
+        },
+        {
+            "tipo":"fixo",
+            "ddi":"55",
+            "ddd":"19",
+            "numero":"33072409"
+            "complemento":""
+        },
+        {
+            "tipo":"outros",
+            "ddi":"55",
+            "ddd":"11",
+            "numero":"33072409"
+            "complemento":"ramal 3305"
+        }
+    ],
+    "endereco": [
+        {
+            "id": 1,
+            "tipo":"cobranca",
+            "logradouro":"R. Jose Paulino 1711",
+            "complemento":"Apto. 64",
+            "bairro": "Vila Itapura",
+            "cidade": "Campinas",
+            "estado": "SP",
+            "pais": "Brasil"
+            "referencia": "Maternidade"
+            "cep":"13023102"
+        },
+        {
+            "id": 2,
+            "tipo":"entrega",
+            "logradouro":"R. Alves Guimares 518",
+            "complemento":"Apto. 41",
+            "bairro": "Pinheiros",
+            "cidade": "Sao Paulo",
+            "estado": "SP",
+            "pais": "Brasil"
+            "referencia": "Teorodro"
+            "cep":"05411000"
+        }
+    ]
+}
+
+Modifica um cliente específico a partir do id
+PUT /{loja}/clientes/{id}
+> Content-Type: application/json
+{
+    "usuario":"afcarv", 
+    "senha":"senha",
+    "tipo":"PF", 
+    "nome":"Anael Ferraz de Carvalho",
+    "datanasc":06/11/1984, 
+    "sexo":"M",
+    "emailoptin": true,
+    "documentos": [
+        {
+            "nome":"CPF",
+            "valor":"00000000010"
+        },
+        {
+            "nome":"RG",
+            "valor":"11111111-1"
+        }
+    ],
+    "telefones": [
+        {
+            "tipo":"celular",
+            "ddi":"55",
+            "ddd":"19",
+            "numero":"93199399"
+            "complemento":""
+        },
+        {
+            "tipo":"fixo",
+            "ddi":"55",
+            "ddd":"19",
+            "numero":"33072409"
+            "complemento":""
+        },
+        {
+            "tipo":"outros",
+            "ddi":"55",
+            "ddd":"11",
+            "numero":"33072409"
+            "complemento":"ramal 3305"
+        }
+    ],
+    "endereco": [
+        {
+            "tipo":"cobranca",
+            "logradouro":"R. Jose Paulino 1711",
+            "complemento":"Apto. 64",
+            "bairro": "Vila Itapura",
+            "cidade": "Campinas",
+            "estado": "SP",
+            "pais": "Brasil"
+            "referencia": "Maternidade"
+            "cep":"13023102"
+        }
+    ]
+}
+< 200
+< Content-Type: application/json
+{ "status": "ok", "url": "/{loja}/clientes/2" }
+
+Deleta um cliente específico a partir do id
+DELETE /{loja}/clientes/{id}
+< 200
+< Content-Type: application/json
+{ "status": "ok" }

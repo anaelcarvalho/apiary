@@ -96,10 +96,13 @@ POST /{loja}/clientes
 
 Recupera um cliente específico a partir do id
 GET /{loja}/clientes/{id}
+> Content-Type: application/json
+{
+    "auth-token": "3dab613a6b212ac31daa12316",
+}
 < 200
 < Content-Type: application/json
 {
-    "auth-token": "3dab613a6b212ac31daa12316",
     "id":2,
     "usuario":"afcarv", 
     "senha":"senha",

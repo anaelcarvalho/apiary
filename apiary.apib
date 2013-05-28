@@ -12,8 +12,8 @@ A seção a seguir refere-se a recursos relacionados a autenticação
 POST /{loja}/login
 > Content-Type: application/json
 {
-    "usuario":"afcarv", 
-    "senha":"senha"
+    "usuario": "afcarv", 
+    "senha": "senha"
 }
 < 200
 < Content-Type: application/json
@@ -22,7 +22,7 @@ POST /{loja}/login
 POST /{loja}/logout
 > Content-Type: application/json
 {
-    "auth-token":"3dab613a6b212ac31daa12316"
+    "auth-token": "3dab613a6b212ac31daa12316"
 }
 < 200
 < Content-Type: application/json
@@ -40,7 +40,7 @@ POST /{loja}/clientes
     "senha":"senha",
     "tipo":"PF", 
     "nome":"Anael Ferraz de Carvalho",
-    "datanasc":06/11/1984, 
+    "datanasc": "06/11/1984", 
     "sexo":"M",
     "emailoptin": true,
     "documentos": [
@@ -58,21 +58,21 @@ POST /{loja}/clientes
             "tipo":"celular",
             "ddi":"55",
             "ddd":"19",
-            "numero":"93199399"
+            "numero":"93199399",
             "complemento":""
         },
         {
             "tipo":"fixo",
             "ddi":"55",
             "ddd":"19",
-            "numero":"33072409"
+            "numero":"33072409",
             "complemento":""
         },
         {
             "tipo":"outros",
             "ddi":"55",
             "ddd":"11",
-            "numero":"33072409"
+            "numero":"33072409",
             "complemento":"ramal 3305"
         }
     ],
@@ -84,8 +84,8 @@ POST /{loja}/clientes
             "bairro": "Vila Itapura",
             "cidade": "Campinas",
             "estado": "SP",
-            "pais": "Brasil"
-            "referencia": "Maternidade"
+            "pais": "Brasil",
+            "referencia": "Maternidade",
             "cep":"13023102"
         }
     ]
@@ -108,7 +108,7 @@ GET /{loja}/clientes/{id}
     "senha":"senha",
     "tipo":"PF", 
     "nome":"Anael Ferraz de Carvalho",
-    "datanasc":06/11/1984, 
+    "datanasc": "06/11/1984", 
     "sexo":"M",
     "emailoptin": true,
     "documentos": [
@@ -126,21 +126,21 @@ GET /{loja}/clientes/{id}
             "tipo":"celular",
             "ddi":"55",
             "ddd":"19",
-            "numero":"93199399"
+            "numero":"93199399",
             "complemento":""
         },
         {
             "tipo":"fixo",
             "ddi":"55",
             "ddd":"19",
-            "numero":"33072409"
+            "numero":"33072409",
             "complemento":""
         },
         {
             "tipo":"outros",
             "ddi":"55",
             "ddd":"11",
-            "numero":"33072409"
+            "numero":"33072409",
             "complemento":"ramal 3305"
         }
     ],
@@ -153,8 +153,8 @@ GET /{loja}/clientes/{id}
             "bairro": "Vila Itapura",
             "cidade": "Campinas",
             "estado": "SP",
-            "pais": "Brasil"
-            "referencia": "Maternidade"
+            "pais": "Brasil",
+            "referencia": "Maternidade",
             "cep":"13023102"
         },
         {
@@ -165,8 +165,8 @@ GET /{loja}/clientes/{id}
             "bairro": "Pinheiros",
             "cidade": "Sao Paulo",
             "estado": "SP",
-            "pais": "Brasil"
-            "referencia": "Teorodro"
+            "pais": "Brasil",
+            "referencia": "Teorodro",
             "cep":"05411000"
         }
     ],
@@ -185,13 +185,13 @@ GET /{loja}/clientes/{id}
                 "precounitario": 5.00,
                 "precototal": 10.00
             }
-        ]
+        ],
         "frete": {
             "id": 1,
             "nome": "Convencional",
             "preco": 6.34,
             "estimativa": "2 dias"
-        }
+        },
         "descontos": [],
         "total": 36.24
     }
@@ -206,7 +206,7 @@ PUT /{loja}/clientes/{id}
     "senha":"senha",
     "tipo":"PF", 
     "nome":"Anael Ferraz de Carvalho",
-    "datanasc":06/11/1984, 
+    "datanasc": "06/11/1984", 
     "sexo":"M",
     "emailoptin": true,
     "documentos": [
@@ -224,21 +224,21 @@ PUT /{loja}/clientes/{id}
             "tipo":"celular",
             "ddi":"55",
             "ddd":"19",
-            "numero":"93199399"
+            "numero":"93199399",
             "complemento":""
         },
         {
             "tipo":"fixo",
             "ddi":"55",
             "ddd":"19",
-            "numero":"33072409"
+            "numero":"33072409",
             "complemento":""
         },
         {
             "tipo":"outros",
             "ddi":"55",
             "ddd":"11",
-            "numero":"33072409"
+            "numero":"33072409",
             "complemento":"ramal 3305"
         }
     ],
@@ -250,8 +250,8 @@ PUT /{loja}/clientes/{id}
             "bairro": "Vila Itapura",
             "cidade": "Campinas",
             "estado": "SP",
-            "pais": "Brasil"
-            "referencia": "Maternidade"
+            "pais": "Brasil",
+            "referencia": "Maternidade",
             "cep":"13023102"
         }
     ]

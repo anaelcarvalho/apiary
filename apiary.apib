@@ -6,6 +6,29 @@ Rascunho inicial
 ---
 
 --
+Recursos de Autenticação
+A seção a seguir refere-se a recursos relacionados a autenticação
+--
+POST /{loja}/login
+> Content-Type: application/json
+{
+    "usuario":"afcarv", 
+    "senha":"senha"
+}
+< 200
+< Content-Type: application/json
+{ "status": "ok", "auth-token": "3dab613a6b212ac31daa12316" }
+
+POST /{loja}/logout
+> Content-Type: application/json
+{
+    "auth-token":"3dab613a6b212ac31daa12316"
+}
+< 200
+< Content-Type: application/json
+{ "status": "ok" }
+
+--
 Recursos de Clientes
 A seção a seguir refere-se a recursos relacionados ao cliente
 --
@@ -76,6 +99,7 @@ GET /{loja}/clientes/{id}
 < 200
 < Content-Type: application/json
 {
+    "auth-token": "3dab613a6b212ac31daa12316",
     "id":2,
     "usuario":"afcarv", 
     "senha":"senha",
@@ -149,6 +173,7 @@ Modifica um cliente específico a partir do id
 PUT /{loja}/clientes/{id}
 > Content-Type: application/json
 {
+    "auth-token": "3dab613a6b212ac31daa12316",
     "usuario":"afcarv", 
     "senha":"senha",
     "tipo":"PF", 
@@ -209,6 +234,10 @@ PUT /{loja}/clientes/{id}
 
 Deleta um cliente específico a partir do id
 DELETE /{loja}/clientes/{id}
+> Content-Type: application/json
+{
+    "auth-token": "3dab613a6b212ac31daa12316",
+}
 < 200
 < Content-Type: application/json
 { "status": "ok" }
@@ -222,6 +251,7 @@ Cria um novo produto
 POST /{loja}/produtos
 > Content-Type: application/json
 {
+    "auth-token": "3dab613a6b212ac31daa12316",
     "id": 1,
     "nome": "Inferno - Uma Nova Aventura de Robert Langdon",
     "chamada": "Neste novo e fascinante thriller Dan Brown retoma a mistura magistral de história, arte, códigos e símbolos que o consagrou em O código Da Vinci, Anjos e demônios e O símbolo perdido e faz de Inferno sua aposta mais alta até o momento...",
@@ -652,6 +682,7 @@ Modifica um produto específico a partir do id
 PUT /{loja}/produtos/{id}
 > Content-Type: application/json
 {
+    "auth-token": "3dab613a6b212ac31daa12316",
     "id": 1,
     "nome": "Inferno - Uma Nova Aventura de Robert Langdon",
     "chamada": "Neste novo e fascinante thriller Dan Brown retoma a mistura magistral de história, arte, códigos e símbolos que o consagrou em O código Da Vinci, Anjos e demônios e O símbolo perdido e faz de Inferno sua aposta mais alta até o momento...",
@@ -866,6 +897,10 @@ PUT /{loja}/produtos/{id}
 
 Deleta um produto específico a partir do id
 DELETE /{loja}/produtos/{id}
+> Content-Type: application/json
+{
+    "auth-token": "3dab613a6b212ac31daa12316",
+}
 < 200
 < Content-Type: application/json
 { "status": "ok" }

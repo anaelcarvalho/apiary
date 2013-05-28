@@ -169,7 +169,32 @@ GET /{loja}/clientes/{id}
             "referencia": "Teorodro"
             "cep":"05411000"
         }
-    ]
+    ],
+    "cesta": {
+        "id": 1,
+        "produtos": [
+            {
+                "id": 31313311,
+                "quantidade": 1,
+                "precounitario": 19.90,
+                "precototal": 19.90
+            },
+            {
+                "id": 133123,
+                "quantidade": 2,
+                "precounitario": 5.00,
+                "precototal": 10.00
+            }
+        ]
+        "frete": {
+            "id": 1,
+            "nome": "Convencional",
+            "preco": 6.34,
+            "estimativa": "2 dias"
+        }
+        "descontos": [],
+        "total": 36.24
+    }
 }
 
 Modifica um cliente específico a partir do id

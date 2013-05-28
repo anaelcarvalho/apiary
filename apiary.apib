@@ -212,3 +212,660 @@ DELETE /{loja}/clientes/{id}
 < 200
 < Content-Type: application/json
 { "status": "ok" }
+
+--
+Recursos de Produtos
+A seção a seguir refere-se a recursos relacionados ao produto
+Obs: idealmente será um proxy para o SOLR
+--
+Cria um novo produto
+POST /{loja}/produtos
+> Content-Type: application/json
+{
+    "id": 1,
+    "nome": "Inferno - Uma Nova Aventura de Robert Langdon",
+    "chamada": "Neste novo e fascinante thriller Dan Brown retoma a mistura magistral de história, arte, códigos e símbolos que o consagrou em O código Da Vinci, Anjos e demônios e O símbolo perdido e faz de Inferno sua aposta mais alta até o momento...",
+    "descricao": "No coração da Itália, Robert Langdon, o professor de Simbologia de Harvard, é arrastado para um mundo angustiante centrado em uma das obras literárias mais duradouras e misteriosas da história: O Inferno, de Dante Alighieri.",
+    "imagens": [
+        {
+            "id": "",
+            "A": -1,
+            "L": 125,
+            "Q": 50
+        },
+        {
+            "id": 4886876,
+            "A": -1,
+            "L": 125,
+            "Q": 50
+        },
+        {
+            "id": 4886877,
+            "A": -1,
+            "L": 125,
+            "Q": 50
+        }
+    ],
+    "caracteristicas": {
+        "tipo": "livro",
+        "editora": {
+            "nome": "Arqueiro",
+            "id": "3"
+        },
+        "autores": [
+            {
+                "nome": "Brown, Dan",
+                "id": "4"
+            }
+        ]
+    },
+    "atributos": [
+        {
+            "id": 1,
+            "nome": "I.S.B.N",
+            "valor": "9788580411522"
+        },
+        {
+            "id": 2,
+            "nome": "Cód. Barras",
+            "valor": "9788580411522"
+        },
+        {
+            "id": 3,
+            "nome": "Reduzido",
+            "valor": "4886876"
+        },
+        {
+            "id": 4,
+            "nome": "Altura",
+            "valor": "23 cm"
+        },
+        {
+            "id": 5,
+            "nome": "Largura",
+            "valor": "16 cm"
+        },
+        {
+            "id": 6,
+            "nome": "Profundidade",
+            "valor": "1 cm"
+        },
+        {
+            "id": 7,
+            "nome": "Edição",
+            "valor": "1 / 2013"
+        },
+        {
+            "id": 8,
+            "nome": "País de Origem",
+            "valor": "Brasil"
+        },
+        {
+            "id": 9,
+            "nome": "Número de Paginas",
+            "valor": "448"
+        }
+    ],
+    "skus": {
+        "atributos": [
+            {
+                "id": 10,
+                "nome": "Acabamento",
+                "valores": [
+                    {
+                        "id": 1,
+                        "valor": "Brochura"
+                    },
+                    {
+                        "id": 2,
+                        "valor": "Capa Dura"
+                    },
+                    {
+                        "id": 3,
+                        "valor": "Luxo"
+                    }
+                ]
+            },
+            {
+                "id": 11,
+                "nome": "Idioma",
+                "valores": [
+                    {
+                        "id": 4,
+                        "valor": "Português"
+                    },
+                    {
+                        "id": 5,
+                        "valor": "Inglês"
+                    },
+                    {
+                        "id": 6,
+                        "valor": "Espanhol"
+                    }
+                ]
+            }
+        ],
+        "skus": [
+            {
+                "id": 1,
+                "precos": {
+                    "vitrine": 39.90,
+                    "oferta": 19.90
+                },
+                "atributos": [
+                    {
+                        "id": 10,
+                        "idvalor": 1
+                    },
+                    {
+                        "id": 11,
+                        "idvalor": 4
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "precos": {
+                    "vitrine": 39.90
+                },
+                "atributos": [
+                    {
+                        "id": 10,
+                        "idvalor": 2
+                    },
+                    {
+                        "id": 11,
+                        "idvalor": 4
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "precos": {
+                    "vitrine": 49.90
+                },
+                "atributos": [
+                    {
+                        "id": 10,
+                        "idvalor": 3
+                    },
+                    {
+                        "id": 11,
+                        "idvalor": 4
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "precos": {
+                    "vitrine": 39.90
+                },
+                "atributos": [
+                    {
+                        "id": 10,
+                        "idvalor": 1
+                    },
+                    {
+                        "id": 11,
+                        "idvalor": 5
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "precos": {
+                    "vitrine": 39.90
+                },
+                "atributos": [
+                    {
+                        "id": 10,
+                        "idvalor": 1
+                    },
+                    {
+                        "id": 11,
+                        "idvalor": 6
+                    }
+                ]
+            }
+        ]
+    }
+}
+< 201
+< Content-Type: application/json
+{ "status": "created", "url": "/{loja}/produtos/1" }
+
+Recupera um produto específico a partir do id
+GET /{loja}/produtos/{id}
+< 200
+< Content-Type: application/json
+{
+    "id": 1,
+    "nome": "Inferno - Uma Nova Aventura de Robert Langdon",
+    "chamada": "Neste novo e fascinante thriller Dan Brown retoma a mistura magistral de história, arte, códigos e símbolos que o consagrou em O código Da Vinci, Anjos e demônios e O símbolo perdido e faz de Inferno sua aposta mais alta até o momento...",
+    "descricao": "No coração da Itália, Robert Langdon, o professor de Simbologia de Harvard, é arrastado para um mundo angustiante centrado em uma das obras literárias mais duradouras e misteriosas da história: O Inferno, de Dante Alighieri.",
+    "imagens": [
+        {
+            "id": "",
+            "A": -1,
+            "L": 125,
+            "Q": 50
+        },
+        {
+            "id": 4886876,
+            "A": -1,
+            "L": 125,
+            "Q": 50
+        },
+        {
+            "id": 4886877,
+            "A": -1,
+            "L": 125,
+            "Q": 50
+        }
+    ],
+    "caracteristicas": {
+        "tipo": "livro",
+        "editora": {
+            "nome": "Arqueiro",
+            "id": "3"
+        },
+        "autores": [
+            {
+                "nome": "Brown, Dan",
+                "id": "4"
+            }
+        ]
+    },
+    "atributos": [
+        {
+            "id": 1,
+            "nome": "I.S.B.N",
+            "valor": "9788580411522"
+        },
+        {
+            "id": 2,
+            "nome": "Cód. Barras",
+            "valor": "9788580411522"
+        },
+        {
+            "id": 3,
+            "nome": "Reduzido",
+            "valor": "4886876"
+        },
+        {
+            "id": 4,
+            "nome": "Altura",
+            "valor": "23 cm"
+        },
+        {
+            "id": 5,
+            "nome": "Largura",
+            "valor": "16 cm"
+        },
+        {
+            "id": 6,
+            "nome": "Profundidade",
+            "valor": "1 cm"
+        },
+        {
+            "id": 7,
+            "nome": "Edição",
+            "valor": "1 / 2013"
+        },
+        {
+            "id": 8,
+            "nome": "País de Origem",
+            "valor": "Brasil"
+        },
+        {
+            "id": 9,
+            "nome": "Número de Paginas",
+            "valor": "448"
+        }
+    ],
+    "skus": {
+        "atributos": [
+            {
+                "id": 10,
+                "nome": "Acabamento",
+                "valores": [
+                    {
+                        "id": 1,
+                        "valor": "Brochura"
+                    },
+                    {
+                        "id": 2,
+                        "valor": "Capa Dura"
+                    },
+                    {
+                        "id": 3,
+                        "valor": "Luxo"
+                    }
+                ]
+            },
+            {
+                "id": 11,
+                "nome": "Idioma",
+                "valores": [
+                    {
+                        "id": 4,
+                        "valor": "Português"
+                    },
+                    {
+                        "id": 5,
+                        "valor": "Inglês"
+                    },
+                    {
+                        "id": 6,
+                        "valor": "Espanhol"
+                    }
+                ]
+            }
+        ],
+        "skus": [
+            {
+                "id": 1,
+                "precos": {
+                    "vitrine": 39.90,
+                    "oferta": 19.90
+                },
+                "atributos": [
+                    {
+                        "id": 10,
+                        "idvalor": 1
+                    },
+                    {
+                        "id": 11,
+                        "idvalor": 4
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "precos": {
+                    "vitrine": 39.90
+                },
+                "atributos": [
+                    {
+                        "id": 10,
+                        "idvalor": 2
+                    },
+                    {
+                        "id": 11,
+                        "idvalor": 4
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "precos": {
+                    "vitrine": 49.90
+                },
+                "atributos": [
+                    {
+                        "id": 10,
+                        "idvalor": 3
+                    },
+                    {
+                        "id": 11,
+                        "idvalor": 4
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "precos": {
+                    "vitrine": 39.90
+                },
+                "atributos": [
+                    {
+                        "id": 10,
+                        "idvalor": 1
+                    },
+                    {
+                        "id": 11,
+                        "idvalor": 5
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "precos": {
+                    "vitrine": 39.90
+                },
+                "atributos": [
+                    {
+                        "id": 10,
+                        "idvalor": 1
+                    },
+                    {
+                        "id": 11,
+                        "idvalor": 6
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+Modifica um produto específico a partir do id
+PUT /{loja}/produtos/{id}
+> Content-Type: application/json
+{
+    "id": 1,
+    "nome": "Inferno - Uma Nova Aventura de Robert Langdon",
+    "chamada": "Neste novo e fascinante thriller Dan Brown retoma a mistura magistral de história, arte, códigos e símbolos que o consagrou em O código Da Vinci, Anjos e demônios e O símbolo perdido e faz de Inferno sua aposta mais alta até o momento...",
+    "descricao": "No coração da Itália, Robert Langdon, o professor de Simbologia de Harvard, é arrastado para um mundo angustiante centrado em uma das obras literárias mais duradouras e misteriosas da história: O Inferno, de Dante Alighieri.",
+    "imagens": [
+        {
+            "id": "",
+            "A": -1,
+            "L": 125,
+            "Q": 50
+        },
+        {
+            "id": 4886876,
+            "A": -1,
+            "L": 125,
+            "Q": 50
+        },
+        {
+            "id": 4886877,
+            "A": -1,
+            "L": 125,
+            "Q": 50
+        }
+    ],
+    "caracteristicas": {
+        "tipo": "livro",
+        "editora": {
+            "nome": "Arqueiro",
+            "id": "3"
+        },
+        "autores": [
+            {
+                "nome": "Brown, Dan",
+                "id": "4"
+            }
+        ]
+    },
+    "atributos": [
+        {
+            "id": 1,
+            "nome": "I.S.B.N",
+            "valor": "9788580411522"
+        },
+        {
+            "id": 2,
+            "nome": "Cód. Barras",
+            "valor": "9788580411522"
+        },
+        {
+            "id": 3,
+            "nome": "Reduzido",
+            "valor": "4886876"
+        },
+        {
+            "id": 4,
+            "nome": "Altura",
+            "valor": "23 cm"
+        },
+        {
+            "id": 5,
+            "nome": "Largura",
+            "valor": "16 cm"
+        },
+        {
+            "id": 6,
+            "nome": "Profundidade",
+            "valor": "1 cm"
+        },
+        {
+            "id": 7,
+            "nome": "Edição",
+            "valor": "1 / 2013"
+        },
+        {
+            "id": 8,
+            "nome": "País de Origem",
+            "valor": "Brasil"
+        },
+        {
+            "id": 9,
+            "nome": "Número de Paginas",
+            "valor": "448"
+        }
+    ],
+    "skus": {
+        "atributos": [
+            {
+                "id": 10,
+                "nome": "Acabamento",
+                "valores": [
+                    {
+                        "id": 1,
+                        "valor": "Brochura"
+                    },
+                    {
+                        "id": 2,
+                        "valor": "Capa Dura"
+                    },
+                    {
+                        "id": 3,
+                        "valor": "Luxo"
+                    }
+                ]
+            },
+            {
+                "id": 11,
+                "nome": "Idioma",
+                "valores": [
+                    {
+                        "id": 4,
+                        "valor": "Português"
+                    },
+                    {
+                        "id": 5,
+                        "valor": "Inglês"
+                    },
+                    {
+                        "id": 6,
+                        "valor": "Espanhol"
+                    }
+                ]
+            }
+        ],
+        "skus": [
+            {
+                "id": 1,
+                "precos": {
+                    "vitrine": 39.90,
+                    "oferta": 19.90
+                },
+                "atributos": [
+                    {
+                        "id": 10,
+                        "idvalor": 1
+                    },
+                    {
+                        "id": 11,
+                        "idvalor": 4
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "precos": {
+                    "vitrine": 39.90
+                },
+                "atributos": [
+                    {
+                        "id": 10,
+                        "idvalor": 2
+                    },
+                    {
+                        "id": 11,
+                        "idvalor": 4
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "precos": {
+                    "vitrine": 49.90
+                },
+                "atributos": [
+                    {
+                        "id": 10,
+                        "idvalor": 3
+                    },
+                    {
+                        "id": 11,
+                        "idvalor": 4
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "precos": {
+                    "vitrine": 39.90
+                },
+                "atributos": [
+                    {
+                        "id": 10,
+                        "idvalor": 1
+                    },
+                    {
+                        "id": 11,
+                        "idvalor": 5
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "precos": {
+                    "vitrine": 39.90
+                },
+                "atributos": [
+                    {
+                        "id": 10,
+                        "idvalor": 1
+                    },
+                    {
+                        "id": 11,
+                        "idvalor": 6
+                    }
+                ]
+            }
+        ]
+    }
+}
+< 200
+< Content-Type: application/json
+{ "status": "ok", "url": "/{loja}/produtos/1" }
+
+Deleta um produto específico a partir do id
+DELETE /{loja}/produtos/{id}
+< 200
+< Content-Type: application/json
+{ "status": "ok" }

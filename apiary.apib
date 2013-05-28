@@ -907,3 +907,62 @@ DELETE /{loja}/produtos/{id}
 < 200
 < Content-Type: application/json
 { "status": "ok" }
+
+--
+Recursos de Conteúdo
+A seção a seguir refere-se a recursos relacionados a conteúdo
+--
+GET /{loja}/conteudo/{secao}
+< 200
+< Content-Type: application/json
+{
+    "id": 1,
+    "nome": "Home Page",
+    "conteudo": [
+        {
+            "id": "1acbb4bcd551b312311d2cd",
+            "tipo": "banner",
+            "alvo": "destaque1",
+            "imagem": "/destaques/promocao.jpg",
+            "url": "/site/produtos/1231311"
+        },
+        {
+            "id": "2a541bca61dbc61341ad2c2",
+            "tipo": "banner",
+            "alvo": "destaque2",
+            "imagem": "/destaques/promocao2.jpg",
+            "url": "/site/hotsite/voltaasaulas"
+        },
+        {
+            "id": "a56135abcaa8313abda6313",
+            "tipo": "carrossel",
+            "alvo": "ofertas",
+            "produtos": {5416341, 1413412, 1414124, 5312351, 6141414}
+        },
+        {
+            "id": "bc13412acd1314bac341311",
+            "tipo": "banner",
+            "alvo": "viagens",
+            "imagem": "/destaques/viagens.jpg",
+            "url": "saraivaviagens.com.br"
+        },
+        {
+            "id": "c13123ca6135adca5132b131",
+            "tipo": "carrossel",
+            "alvo": "lancamentos",
+            "produtos": {6413913, 236134, 131471, 141234124, 2313123}
+        },
+        {
+            "id": "d313bad54114bd131123dab3",
+            "tipo": "texto",
+            "alvo": "social",
+            "texto": "Siga-nos online para acompanhar nossas ofertas, assista aos v&iacute;deos mais recentes e compartilhe seus produtos favoritos."
+        },
+        {
+            "id": "a41c51312cb41341265ab1c1",
+            "tipo": "html",
+            "alvo": "rodape",
+            "html": "<div class=\"cartao-saraiva\"><h5 title=\"Cart&atilde;o Saraiva\">Cart&atilde;o Saraiva</h5><a href=\"/cartao-saraiva-2010/?utm_source=site&utm_medium=rodape_site&utm_campaign=cartao_saraiva\" title=\"Cart&atilde;o Saraiva\"><img src=\"/img/rodape-saraiva_cartao-saraiva.jpg\" alt=\"Cart&atilde;o Saraiva\" border=\"0\" /></a></div><div class=\"hist\"><h5 title=\"Nossa histÃ³ria\"><a href=\"/quem-somos#nossa-historia\" title=\"Nossa historia\" style=\"text-decoration:none\">Nossa hist&oacute;ria</a></h5><ul style=\"padding:0; margin-top:6px;\"><li style=\"list-style: none outside none;\"><div class=\"imagem-hist\"><a href=\"/quem-somos/nossa-historia.htm\" title=\"Nossa historia\" style=\"text-decoration:none;\">Nossa hist&oacute;ria</a></div><div class=\"texto-hist\">Conhe&ccedil;a como a Saraiva tornou-se um dos maiores grupos do varejo e editorial do Brasil.</div></li></ul></div></div>"
+        }
+    ]
+}

@@ -1,8 +1,8 @@
 HOST: http://www.saraiva.com.br/
 
---- REST API v1 ---
+--- REST API v2 ---
 ---
-Rascunho inicial
+Adicionados diversos recursos
 ---
 
 --
@@ -177,7 +177,7 @@ POST /cliente
 < Content-Type: application/json
 { "status": "created", "url": "/cliente/1" }
 
-Modifica um cliente específico a partir do id
+Modifica um cliente
 PUT /cliente
 > Content-Type: application/json
 {
@@ -778,7 +778,7 @@ POST /produto
 < Content-Type: application/json
 { "status": "created", "url": "/produto/1" }
 
-Modifica um produto específico a partir do id
+Modifica um produto
 PUT /produto
 > Content-Type: application/json
 {
@@ -1824,7 +1824,7 @@ GET /categoria/{categoriaId}/produtos
 Recursos de Cestas de Compras
 A seção a seguir refere-se a recursos relacionados à cesta de compras
 --
-Recupera um cliente específico a partir do id
+Recupera a cesta de compras de um cliente
 GET /cliente/{id}/cesta
 > Content-Type: application/json
 {
